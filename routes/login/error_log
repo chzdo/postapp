@@ -1,0 +1,30 @@
+[18-Jan-2021 19:20:09 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to a member function setAttribute() on null in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/user.php:18
+Stack trace:
+#0 /home/journals/public_html/spgs.fulafia.edu.ng/api/routes/login/index.php(27): User->__construct(NULL)
+#1 {main}
+  thrown in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/user.php on line 18
+[18-Jan-2021 19:20:16 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to a member function setAttribute() on null in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/user.php:18
+Stack trace:
+#0 /home/journals/public_html/spgs.fulafia.edu.ng/api/routes/login/index.php(27): User->__construct(NULL)
+#1 {main}
+  thrown in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/user.php on line 18
+[18-Jan-2021 19:20:35 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to a member function setAttribute() on null in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/user.php:18
+Stack trace:
+#0 /home/journals/public_html/spgs.fulafia.edu.ng/api/routes/login/index.php(27): User->__construct(NULL)
+#1 {main}
+  thrown in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/user.php on line 18
+[18-Jan-2021 19:23:06 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to a member function setAttribute() on null in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/user.php:18
+Stack trace:
+#0 /home/journals/public_html/spgs.fulafia.edu.ng/api/routes/login/index.php(27): User->__construct(NULL)
+#1 {main}
+  thrown in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/user.php on line 18
+[18-Jan-2021 19:23:15 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to a member function setAttribute() on null in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/user.php:18
+Stack trace:
+#0 /home/journals/public_html/spgs.fulafia.edu.ng/api/routes/login/index.php(27): User->__construct(NULL)
+#1 {main}
+  thrown in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/user.php on line 18
+[18-Jan-2021 19:23:24 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to a member function setAttribute() on null in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/user.php:18
+Stack trace:
+#0 /home/journals/public_html/spgs.fulafia.edu.ng/api/routes/login/index.php(27): User->__construct(NULL)
+#1 {main}
+  thrown in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/user.php on line 18

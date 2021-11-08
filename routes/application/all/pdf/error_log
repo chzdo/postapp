@@ -1,0 +1,14 @@
+[18-Jan-2021 19:46:41 Africa/Lagos] PHP Notice:  Undefined variable: db in /home/journals/public_html/spgs.fulafia.edu.ng/api/routes/application/all/pdf/index.php on line 91
+[18-Jan-2021 19:46:41 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to a member function setAttribute() on null in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/logs.php:11
+Stack trace:
+#0 /home/journals/public_html/spgs.fulafia.edu.ng/api/routes/application/all/pdf/index.php(91): Logs->__construct(NULL)
+#1 {main}
+  thrown in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/logs.php on line 11
+[18-Jan-2021 19:49:10 Africa/Lagos] PHP Notice:  Undefined variable: db in /home/journals/public_html/spgs.fulafia.edu.ng/api/routes/application/all/pdf/index.php on line 91
+[18-Jan-2021 19:49:10 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to a member function setAttribute() on null in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/logs.php:11
+Stack trace:
+#0 /home/journals/public_html/spgs.fulafia.edu.ng/api/routes/application/all/pdf/index.php(91): Logs->__construct(NULL)
+#1 {main}
+  thrown in /home/journals/public_html/spgs.fulafia.edu.ng/api/models/logs.php on line 11
+[18-Jan-2021 19:54:36 Africa/Lagos] PHP Notice:  Undefined variable: s in /home/journals/public_html/spgs.fulafia.edu.ng/api/routes/application/all/pdf/index.php on line 92
+[18-Jan-2021 19:54:36 Africa/Lagos] PHP Notice:  Trying to get property 'name' of non-object in /home/journals/public_html/spgs.fulafia.edu.ng/api/routes/application/all/pdf/index.php on line 92

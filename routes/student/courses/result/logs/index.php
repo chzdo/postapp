@@ -1,0 +1,128 @@
+<?php
+include_once '../../../../../vendor/autoload.php';
+
+include_once '../../../../../config/db.php';
+
+
+require_once '../../../../../models/dept.php';
+require_once '../../../../../models/courses.php';
+require_once '../../../../../models/session.php';
+require_once '../../../../../models/student.php';
+require_once '../../../../../models/logs.php';
+require_once '../../../../../models/tokenizer.php';
+// generate json web token
+include_once '../../../../../config/core.php';
+
+header('Access-Control-Allow-Origin: ' . $aud);
+header('Access-Control-Allow-Methods: GET, OPTIONS');
+
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+
+
+use \Firebase\JWT\JWT;
+
+
+$database = new Db();
+$db = $database->getConnection();
+
+
+// get posted data
+
+$headers =  apache_request_headers();
+
+$token = isset($headers['Authorization']) ? $headers['Authorization'] : "";
+
+
+
+if (!$token) {
+
+    echo sendJson(array('code' => 2, 'message' => RESPONSE['auth'], 'payload' => null));
+    return;
+}
+
+
+try {
+    $decoded = JWT::decode($token, $key, array('HS256'));
+
+} catch (Exception $e) {
+    echo sendJson(array('code' => 2, 'message' => RESPONSE['auth'], 'payload' => null));
+    return;
+}
+
+$postdata =   json_decode(base64_decode($_GET['0']),true);
+
+
+
+
+if (!isset($postdata['session_id'])) {
+    echo sendJson(array('code' => 0, 'message' => RESPONSE['invalid'], 'payload' => null));
+    return;
+}
+if (!isset($postdata['course_id'])) {
+    echo sendJson(array('code' => 0, 'message' => RESPONSE['invalid'], 'payload' => null));
+    return;
+}
+if (!isset($postdata['semester_id'])) {
+    echo sendJson(array('code' => 0, 'message' => RESPONSE['invalid'], 'payload' => null));
+    return;
+}
+
+if (!isset($postdata['Auth_id'])) {
+    echo sendJson(array('code' => 0, 'message' => "No Authorization Code", 'payload' => null));
+    return;
+}
+
+try {
+    $result = JWT::decode(base64_decode($postdata['Auth_id']), $result_key, array('HS256'));
+
+} catch (Exception $e) {
+
+    echo sendJson(array('code' => 0, 'message' => "Invalid Authorization Code", 'payload' => null));
+    return;
+}
+
+if($result->data->id != $decoded->data->id ){
+    echo sendJson(array('code' => 0, 'message' => "Invalid Authorization Code", 'payload' => null));
+    return;
+}
+try {
+    $dept = new Dept($db);
+    $course = new Courses($db);
+    $prog = new Session($db);
+    $log =  new Logs($db,$decoded->data->id);
+    $stu = new Student($db);
+  
+    if (!$prog->check($postdata['session_id'])) {
+        echo sendJson(array('code' => 0, 'message' => "Session does not exist", 'payload' => null));
+        return;
+    }
+    if (!$course->check($postdata['course_id'])) {
+        echo sendJson(array('code' => 0, 'message' => "Inavlid Course", 'payload' => null));
+        return;
+    }
+    if (!($postdata['semester_id'] != 1 || $postdata['semester_id'] != 2)) {
+        echo sendJson(array('code' => 0, 'message' => "Invalid Semester", 'payload' => null));
+        return;
+    }
+ 
+
+     $response = $log->getResultLogs($postdata['session_id'],$postdata['course_id']);
+     $response2 = $log->getApprovalResultLogs($postdata['session_id'],$postdata['course_id']);
+        echo sendJson(array('code' => 1, 'message' => "found", 'payload' => array("logs"=> $response, "Applogs"=>$response2)));
+        return;
+     
+    
+
+  
+
+
+
+} catch (Exception $e) {
+
+    echo sendJson(array('code' => 0, 'message' => $e->getMessage(), 'payload' => null));
+    return;
+}
+

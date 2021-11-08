@@ -1,0 +1,15 @@
+{
+    "require": {
+        "firebase/php-jwt": "^5.2",
+        "nesbot/carbon": "^2.40",
+        "dompdf/dompdf": "^0.8.6",
+        "guzzlehttp/guzzle": "7.0",
+        "mpdf/mpdf": "^8.0",
+        "tecnickcom/tcpdf": "^6.2.13",
+        "phpmailer/phpmailer": "^6.1",
+        "phpoffice/phpspreadsheet": "^1.15",
+        "setasign/fpdf": "1.8",
+        "setasign/fpdi": "^2.3",
+        "slm/queue": "^2.0"
+    }
+}
